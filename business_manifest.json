@@ -1,0 +1,37 @@
+{
+  "name": "WiseChain",
+  "type": "saas",
+  "description": "WiseChain is a no-code/low-code platform that leverages Web3 technology to create customizable health and wellness apps with blockchain transparency for businesses seeking to improve employee wellbeing without tech barriers.",
+  "generated_at": "2025-12-07T22:02:43.941188",
+  "components": [
+    "spec",
+    "build",
+    "deploy",
+    "spec_requirements",
+    "spec_architecture",
+    "build_code",
+    "build_test"
+  ],
+  "files_written": [
+    "businesses\\production_test\\saas\\wisechain\\src\\components\\component.tsx",
+    "businesses\\production_test\\saas\\wisechain\\__tests__\\component.test.tsx",
+    "businesses\\production_test\\saas\\wisechain\\vercel.json",
+    "businesses\\production_test\\saas\\wisechain\\src\\components\\requirements.tsx",
+    "businesses\\production_test\\saas\\wisechain\\__tests__\\architecture.test.tsx",
+    "businesses\\production_test\\saas\\wisechain\\vercel.json",
+    "businesses\\production_test\\saas\\wisechain\\src\\components\\test.tsx",
+    "businesses\\production_test\\saas\\wisechain\\src\\app\\layout.tsx",
+    "businesses\\production_test\\saas\\wisechain\\src\\app\\globals.css",
+    "businesses\\production_test\\saas\\wisechain\\src\\app\\page.tsx"
+  ],
+  "tasks_completed": 7,
+  "tasks_failed": 0,
+  "ap2_estimated_cost": 45.2,
+  "ap2_estimated_tokens": 19500,
+  "ap2_generation_approval": null,
+  "infrastructure_approvals": {
+    "analytics": null,
+    "database": null,
+    "storage": null
+  }
+}

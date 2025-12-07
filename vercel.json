@@ -1,0 +1,147 @@
+interface BuildCommand {
+  command: string;
+  output?: string;
+}
+
+interface EnvTemplate {
+  [key: string]: string;
+}
+
+interface HeaderRule {
+  source: string;
+  headers: Array<{ key: string; value: string }>;
+}
+
+interface CacheStrategy {
+  rules: Array<{
+    urlPathPattern: string;
+    edgeCacheExpirationSeconds: number;
+    browserCacheExpirationSeconds: number;
+  }>;
+}
+
+interface FrameworkSettings {
+  vercel?: { [key: string]: any };
+  netlify?: { [key: string]: any };
+}
+
+interface DeployConfig {
+  build: BuildCommand;
+  env: EnvTemplate;
+  headers: Array<HeaderRule>;
+  cache: CacheStrategy;
+  frameworkSettings: FrameworkSettings;
+}
+
+export const deployConfig: DeployConfig = {
+  build: {
+    command: "next build",
+    output: ".next"
+  },
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    DATABASE_URL: process.env.DATABASE_URL
+  },
+  headers: [
+    {
+      source: "/(.*)",
+      headers: [
+        { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
+        { key: "X-Frame-Options", value: "DENY" },
+        { key: "X-XSS-Protection", value: "1; mode=block" }
+      ]
+    }
+  ],
+  cache: {
+    rules: [
+      {
+        urlPathPattern: "/static/(.*)",
+        edgeCacheExpirationSeconds: 604800,
+        browserCacheExpirationSeconds: 604800
+      },
+      {
+        urlPathPattern: "/*.(js|css|png|jpg|jpeg|gif|ico)",
+        edgeCacheExpirationSeconds: 31536000,
+        browserCacheExpirationSeconds: 31536000
+      }
+    ]
+  },
+  frameworkSettings: {
+    vercel: { buildCommand: "next build", startCommand: "next start" },
+    netlify: { buildContext: { NODE_ENV: "production" } }
+  }
+};
+
+interface BuildCommand {
+  command: string;
+  output?: string;
+}
+
+interface EnvTemplate {
+  [key: string]: string;
+}
+
+interface HeaderRule {
+  source: string;
+  headers: Array<{ key: string; value: string }>;
+}
+
+interface CacheStrategy {
+  rules: Array<{
+    urlPathPattern: string;
+    edgeCacheExpirationSeconds: number;
+    browserCacheExpirationSeconds: number;
+  }>;
+}
+
+interface FrameworkSettings {
+  vercel?: { [key: string]: any };
+  netlify?: { [key: string]: any };
+}
+
+interface DeployConfig {
+  build: BuildCommand;
+  env: EnvTemplate;
+  headers: Array<HeaderRule>;
+  cache: CacheStrategy;
+  frameworkSettings: FrameworkSettings;
+}
+
+export const deployConfig: DeployConfig = {
+  build: {
+    command: "next build",
+    output: ".next"
+  },
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    DATABASE_URL: process.env.DATABASE_URL
+  },
+  headers: [
+    {
+      source: "/(.*)",
+      headers: [
+        { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
+        { key: "X-Frame-Options", value: "DENY" },
+        { key: "X-XSS-Protection", value: "1; mode=block" }
+      ]
+    }
+  ],
+  cache: {
+    rules: [
+      {
+        urlPathPattern: "/static/(.*)",
+        edgeCacheExpirationSeconds: 604800,
+        browserCacheExpirationSeconds: 604800
+      },
+      {
+        urlPathPattern: "/*.(js|css|png|jpg|jpeg|gif|ico)",
+        edgeCacheExpirationSeconds: 31536000,
+        browserCacheExpirationSeconds: 31536000
+      }
+    ]
+  },
+  frameworkSettings: {
+    vercel: { buildCommand: "next build", startCommand: "next start" },
+    netlify: { buildContext: { NODE_ENV: "production" } }
+  }
+};
